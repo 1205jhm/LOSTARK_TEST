@@ -1,0 +1,11 @@
+@charset "UTF-8";
+
+main {
+  margin: 0 auto;
+  min-height: 100%;
+  position: relative;
+  width: 1260px;
+  display: block;
+  padding: 0;
+  background-color: #252931;
+}
