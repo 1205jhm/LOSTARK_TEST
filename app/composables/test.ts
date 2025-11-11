@@ -11,6 +11,7 @@ const get = async (path: string, params = {}) => {
       query: params,
     });
     console.log(response);
+    return response;
   } catch (error) {}
 };
 
@@ -24,23 +25,24 @@ const post = async (path: string, params = {}) => {
       body: params,
     });
     console.log(response);
+    return response;
   } catch (error) {}
 };
 
 const news = {
   async notices() {
     try {
-      get(`/news/notices`, {});
+      return await get(`/news/notices`, {});
     } catch (error) {}
   },
   async events() {
     try {
-      get(`/news/events`, {});
+      return await get(`/news/events`, {});
     } catch (error) {}
   },
   async alarms() {
     try {
-      get(`/news/alarms`, {});
+      return await get(`/news/alarms`, {});
     } catch (error) {}
   },
 };
@@ -48,7 +50,7 @@ const news = {
 const characters = {
   async siblings(characterName: String) {
     try {
-      get(`/characters/${characterName}/siblings`, {});
+      return await get(`/characters/${characterName}/siblings`, {});
     } catch (error) {}
   },
 };
@@ -56,57 +58,57 @@ const characters = {
 const armories = {
   async profiles(characterName: String) {
     try {
-      get(`/armories/characters/${characterName}/profiles`, {});
+      return await get(`/armories/characters/${characterName}/profiles`, {});
     } catch (error) {}
   },
   async equipment(characterName: String) {
     try {
-      get(`/armories/characters/${characterName}/equipment`, {});
+      return await get(`/armories/characters/${characterName}/equipment`, {});
     } catch (error) {}
   },
   async avatars(characterName: String) {
     try {
-      get(`/armories/characters/${characterName}/avatars`, {});
+      return await get(`/armories/characters/${characterName}/avatars`, {});
     } catch (error) {}
   },
   async combatSkills(characterName: String) {
     try {
-      get(`/armories/characters/${characterName}/combat-skills`, {});
+      return await get(`/armories/characters/${characterName}/combat-skills`, {});
     } catch (error) {}
   },
   async engravings(characterName: String) {
     try {
-      get(`/armories/characters/${characterName}/engravings`, {});
+      return await get(`/armories/characters/${characterName}/engravings`, {});
     } catch (error) {}
   },
   async cards(characterName: String) {
     try {
-      get(`/armories/characters/${characterName}/cards`, {});
+      return await get(`/armories/characters/${characterName}/cards`, {});
     } catch (error) {}
   },
   async gems(characterName: String) {
     try {
-      get(`/armories/characters/${characterName}/gems`, {});
+      return await get(`/armories/characters/${characterName}/gems`, {});
     } catch (error) {}
   },
   async colosseums(characterName: String) {
     try {
-      get(`/armories/characters/${characterName}/colosseums`, {});
+      return await get(`/armories/characters/${characterName}/colosseums`, {});
     } catch (error) {}
   },
   async collectibles(characterName: String) {
     try {
-      get(`/armories/characters/${characterName}/collectibles`, {});
+      return await get(`/armories/characters/${characterName}/collectibles`, {});
     } catch (error) {}
   },
   async arkpassive(characterName: String) {
     try {
-      get(`/armories/characters/${characterName}/arkpassive`, {});
+      return await get(`/armories/characters/${characterName}/arkpassive`, {});
     } catch (error) {}
   },
   async arkgrid(characterName: String) {
     try {
-      get(`/armories/characters/${characterName}/arkgrid`, {});
+      return await get(`/armories/characters/${characterName}/arkgrid`, {});
     } catch (error) {}
   },
 };
@@ -114,7 +116,7 @@ const armories = {
 const auctions = {
   async options() {
     try {
-      get(`/auctions/options`, {});
+      return await get(`/auctions/options`, {});
     } catch (error) {}
   },
   async items() {
@@ -150,7 +152,7 @@ const auctions = {
         PageNo: 0,
         SortCondition: "ASC",
       };
-      post(`/auctions/items`, params);
+      return await post(`/auctions/items`, params);
     } catch (error) {}
   },
 };
@@ -158,12 +160,12 @@ const auctions = {
 const markets = {
   async options() {
     try {
-      get(`/markets/options`, {});
+      return await get(`/markets/options`, {});
     } catch (error) {}
   },
   async itemId(itemId: String) {
     try {
-      get(`/markets/items/${itemId}`, {});
+      return await get(`/markets/items/${itemId}`, {});
     } catch (error) {}
   },
   async items() {
@@ -178,7 +180,7 @@ const markets = {
         PageNo: 0,
         SortCondition: "ASC",
       };
-      post(`/markets/items`, params);
+      return await post(`/markets/items`, params);
     } catch (error) {}
   },
 };
@@ -186,7 +188,7 @@ const markets = {
 const gamecontents = {
   async calendar() {
     try {
-      get(`/gamecontents/calendar`, {});
+      return await get(`/gamecontents/calendar`, {});
     } catch (error) {}
   },
 };

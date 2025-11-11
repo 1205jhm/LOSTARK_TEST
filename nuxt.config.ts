@@ -4,4 +4,9 @@ export default defineNuxtConfig({
   devtools: { enabled: true },
 
   css: ["~/assets/css/style.css"],
+  vue: {
+    compilerOptions: {
+      isCustomElement: (tag) => ["textformat", "font"].includes(tag),
+    },
+  },
 });

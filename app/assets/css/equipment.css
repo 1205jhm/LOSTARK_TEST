@@ -1,0 +1,314 @@
+#div-profile {
+  width: 450px;
+  flex-shrink: 0;
+}
+
+#div-ability {
+  width: 250px;
+  flex-shrink: 0;
+}
+
+.lostark-pc .profile-equipment {
+  position: relative;
+  clear: both;
+}
+
+.lostark-pc .profile-avatar__character,
+.lostark-pc .profile-equipment__character {
+  box-sizing: border-box;
+  height: 100%;
+  position: relative;
+  text-align: center;
+  width: 100%;
+  align-items: start;
+}
+
+.lostark-pc .profile-avatar__character > img,
+.lostark-pc .profile-equipment__character > img {
+  border: 0;
+  vertical-align: top;
+}
+
+.lostark-pc .profile-avatar__character .list_emblem,
+.lostark-pc .profile-equipment__character .list_emblem {
+  bottom: 27px;
+  column-gap: 12px;
+  display: flex;
+  left: 38px;
+  position: absolute;
+}
+
+.lostark-pc .profile-avatar__character .honor_info,
+.lostark-pc .profile-equipment__character .honor_info {
+  align-items: center;
+  bottom: 32px;
+  display: flex;
+  position: absolute;
+  right: 35px;
+}
+
+.lostark-pc .profile-avatar__character .honor_info .honor_grade,
+.lostark-pc .profile-equipment__character .honor_info .honor_grade {
+  align-items: center;
+  color: #fff;
+  display: flex;
+  font-size: 15px;
+  margin-right: 6px;
+}
+
+.lostark-pc .profile-avatar__character .honor_info .honor_grade[data-honor-grade="1"]:before,
+.lostark-pc .profile-equipment__character .honor_info .honor_grade[data-honor-grade="1"]:before {
+  background-position: 0 0;
+}
+
+.lostark-pc .profile-avatar__character .honor_info .honor_grade:before,
+.lostark-pc .profile-equipment__character .honor_info .honor_grade:before {
+  background-image: url(https://cdn-lostark.game.onstove.com/2018/obt/assets/images/common/game/ico_honor_symbol.png);
+  background-repeat: no-repeat;
+  background-size: 500% auto;
+  content: "";
+  display: block;
+  height: 36px;
+  width: 36px;
+}
+
+.lostark-pc .profile-avatar__character .honor_info .honor_point,
+.lostark-pc .profile-equipment__character .honor_info .honor_point {
+  color: #ffd200;
+  font-size: 15px;
+}
+
+.lostark-pc .profile-avatar__slot,
+.lostark-pc .profile-equipment__slot {
+  left: 0;
+  position: absolute;
+  top: 0;
+  z-index: 2;
+}
+
+.lostark-pc .profile-equipment .profile-equipment__slot .slot_left {
+  position: absolute;
+  left: 37px;
+  top: 127px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.lostark-pc .profile-equipment .profile-equipment__slot .slot_right {
+  position: absolute;
+  left: 502px;
+  top: 127px;
+  display: flex;
+  flex-direction: column;
+  align-items: end;
+  gap: 12px;
+}
+
+.lostark-pc .profile-equipment .profile-equipment__slot > div > div {
+  box-sizing: border-box;
+  display: flex;
+  column-gap: 10px;
+}
+
+.lostark-pc .profile-equipment .profile-equipment__slot .slot_img {
+  align-items: center;
+  position: relative;
+  display: flex;
+  height: 50px;
+  justify-content: center;
+  width: 50px;
+}
+
+.lostark-pc .profile-equipment__slot .slot_left .slot_img:not(:empty):before {
+  background: url(https://cdn-lostark.game.onstove.com/2018/obt/assets/images/common/game/bg_equipment_arkpassive.png) no-repeat;
+  left: -4px;
+  position: absolute;
+  top: -4px;
+  content: "";
+  height: 60px;
+  width: 60px;
+}
+
+.lostark-pc .profile-avatar__slot div[data-grade="5"] img,
+.lostark-pc .profile-equipment__slot div[data-grade="5"] img {
+  background: linear-gradient(135deg, #341a09, #a24006);
+}
+
+.lostark-pc .profile-avatar__slot div[data-grade="6"] img,
+.lostark-pc .profile-equipment__slot div[data-grade="6"] img {
+  background: linear-gradient(135deg, #3d3325, #dcc999);
+}
+
+.lostark-pc .profile-avatar__slot div img,
+.lostark-pc .profile-equipment__slot div img {
+  height: 44px;
+  width: 44px;
+}
+
+img {
+  border: 0;
+  vertical-align: top;
+}
+
+.lostark-pc .profile-equipment .profile-equipment__slot .option_info {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.lostark-pc .profile-equipment .profile-equipment__slot .elixir_info {
+  display: flex;
+  margin-bottom: 3px;
+}
+
+.lostark-pc .profile-equipment .profile-equipment__slot .elixir_info .elixir_level.max {
+  background-position-x: 100%;
+}
+
+.lostark-pc .profile-equipment .profile-equipment__slot .elixir_info .elixir_level {
+  background: url(https://cdn-lostark.game.onstove.com/2018/obt/assets/images/common/game/ico_elixir_level.png) no-repeat 0 0 / 200% auto;
+  display: block;
+  height: 28px;
+  text-align: center;
+  width: 24px;
+}
+
+.lostark-pc .profile-equipment .profile-equipment__slot .elixir_info .elixir_level .level {
+  color: #fff;
+  display: inline-block;
+  font-size: 12px;
+  font-style: normal;
+  margin-top: 6px;
+  position: relative;
+  z-index: 1;
+}
+
+.lostark-pc .profile-equipment .profile-equipment__slot .elixir_info .elixir_level.max .level {
+  color: #ffd200;
+}
+
+.lostark-pc .profile-equipment .profile-equipment__slot .elixir_info .elixir_level .level:after {
+  -webkit-text-stroke: 2px #000;
+  content: attr(data-level);
+  left: 0;
+  position: absolute;
+  z-index: -1;
+}
+
+.lostark-pc .profile-equipment .profile-equipment__slot .transcendence_info.max {
+  background-position-y: 100%;
+}
+
+.lostark-pc .profile-equipment .profile-equipment__slot .transcendence_info {
+  background: url(https://cdn-lostark.game.onstove.com/2018/obt/assets/images/common/game/bg_transcendence.png) no-repeat 50% 0 / auto 200%;
+  box-sizing: border-box;
+  height: 19px;
+  line-height: 14px;
+  padding-left: 25px;
+  width: 48px;
+}
+
+.lostark-pc .profile-equipment .profile-equipment__slot .transcendence_info .transcendence_grade {
+  color: #fff;
+  display: inline-block;
+  font-size: 12px;
+  position: relative;
+  z-index: 1;
+}
+
+.lostark-pc .profile-equipment .profile-equipment__slot .transcendence_info.max .transcendence_grade {
+  color: #ffd200;
+}
+
+.lostark-pc .profile-equipment .profile-equipment__slot .transcendence_info .transcendence_grade:after {
+  -webkit-text-stroke: 2px #000;
+  content: attr(data-grade);
+  left: 0;
+  position: absolute;
+  z-index: -1;
+}
+
+.lostark-pc .profile-equipment .profile-equipment__slot .slot_right > div {
+  flex-direction: row-reverse;
+}
+
+.lostark-pc .profile-equipment__slot .slot_right .slot_img:not(:empty):before {
+  background: url(https://cdn-lostark.game.onstove.com/2018/obt/assets/images/common/game/bg_equipment_arkpassive2.png) no-repeat;
+  left: -4px;
+  position: absolute;
+  top: -4px;
+  content: "";
+  height: 60px;
+  width: 60px;
+}
+
+.lostark-pc .profile-equipment .profile-equipment__slot .accessory_option {
+  display: flex;
+  flex-direction: column;
+  font-size: 0;
+  justify-content: center;
+}
+
+.lostark-pc .profile-equipment .profile-equipment__slot .accessory_option span.item_grade_high {
+  background-position-x: 0%;
+}
+
+.lostark-pc .profile-equipment .profile-equipment__slot .accessory_option span.item_grade_medium {
+  background-position-x: 50%;
+}
+
+.lostark-pc .profile-equipment .profile-equipment__slot .accessory_option span.item_grade_low {
+  background-position-x: 100%;
+}
+
+.lostark-pc .profile-equipment .profile-equipment__slot .accessory_option span {
+  background: url(https://cdn-lostark.game.onstove.com/2018/obt/assets/images/common/game/ico_accessory_option.png) no-repeat 0 0 / 300% auto;
+  height: 16px;
+  width: 16px;
+}
+
+.lostark-pc .profile-equipment__slot .slot12 .slot_img:not(:empty):before {
+  background: url(https://cdn-lostark.game.onstove.com/2018/obt/assets/images/common/game/bg_equipment_arkpassive3.png) no-repeat;
+}
+
+.lostark-pc .profile-equipment__slot .slot13 .slot_img:not(:empty):before {
+  background: none;
+}
+
+.lostark-pc .profile-equipment__slot .slot17 .slot_img:not(:empty):before {
+  background: url(https://cdn-lostark.game.onstove.com/2018/obt/assets/images/common/game/bg_equipment_slot_orb_over.png) no-repeat;
+}
+
+.lostark-pc .profile-equipment .option_total {
+  color: #fff;
+  column-gap: 10px;
+  flex-direction: column;
+  font-size: 14px;
+  left: 38px;
+  min-width: 160px;
+  row-gap: 3px;
+  top: 500px;
+}
+
+.lostark-pc .profile-avatar__slot > div,
+.lostark-pc .profile-equipment__slot > div {
+  box-sizing: border-box;
+  display: flex;
+  position: absolute;
+}
+
+.lostark-pc .profile-equipment .option_total div {
+  box-sizing: border-box;
+  height: 30px;
+  line-height: 30px;
+  padding-left: 38px;
+}
+
+.lostark-pc .profile-equipment .option_total .elixir {
+  background: url(https://cdn-lostark.game.onstove.com/2018/obt/assets/images/pc/profile/bg_elixir.png) no-repeat;
+}
+
+.lostark-pc .profile-equipment .option_total .transcendence {
+  background: url(https://cdn-lostark.game.onstove.com/2018/obt/assets/images/pc/profile/bg_transcendence.png) no-repeat;
+}
