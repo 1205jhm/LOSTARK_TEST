@@ -5,13 +5,10 @@
 * {
   box-sizing: border-box;
   color: white;
+  font-size: 18px;
   margin: 0;
   border: 0;
   padding: 0;
-}
-
-body {
-  margin: 0;
 }
 
 div {
@@ -33,50 +30,53 @@ div {
 }
 
 .lostark-pc {
-  background: #16191d;
   width: 1420px;
   height: 920px;
+
+  background: #16191d;
   margin: auto;
-  flex-direction: column;
 }
 
-#title {
+.title {
   height: 50px;
   width: 100%;
-  line-height: 50px;
-  border-bottom: 3px solid gold;
-  font-size: 18px;
   flex-shrink: 0;
+
+  border-bottom: 3px solid gold;
 }
 
-#profile-ability {
+.profile-tab {
   padding: 0 20px 20px 20px;
-  width: 100%;
-  height: 100%;
-  flex-direction: column;
 }
 
-#ability-menu {
+.menu {
+  width: 100%;
   height: 50px;
-  line-height: 50px;
+  flex-shrink: 0;
+
   gap: 6px;
-  width: 100%;
 }
 
-#ability-menu a {
+.menu > div {
   height: 100%;
   flex: 1;
+
   border-bottom: 3px solid gray;
-  color: #66686a;
-  float: left;
-  font-size: 18px;
-  text-align: center;
-  text-decoration: none;
+  color: gray;
 }
 
-#ability-menu a:last-child {
+.menu > div:last-child {
   border: 0;
 }
-#ability-menu a.lui-tab__link--active {
-  color: #fff;
+
+.menu > div.active {
+  color: white;
+  background: linear-gradient(to bottom, #1a1a1a 0%, #2d2a27 30%, #4a3a2a 60%, #cfaf6f 90%, #efcf8f 100%);
+  border-bottom: 2px solid #ffdf9f;
+}
+
+.preset {
+  width: 100%;
+  height: 60px;
+  flex-shrink: 0;
 }
