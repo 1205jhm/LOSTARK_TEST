@@ -5,14 +5,9 @@
       <div class="column full">
         <div class="preset"></div>
         <div class="full">
-          <div class="full lui-tab__content profile-equipment">
+          <div class="column full profile-equipment">
             <div class="profile-equipment__character">
               <img :src="profiles.CharacterImage" alt="창술사" />
-              <div class="list_emblem"></div>
-              <div class="honor_info">
-                <span class="honor_grade" :data-honor-grade="honerGrade(profiles.HonorPoint)">명예</span>
-                <span class="honor_point">{{ profiles.HonorPoint }}</span>
-              </div>
             </div>
             <div class="profile-equipment__slot" v-if="activeTab == 'equipment'">
               <div class="slot_left">
@@ -30,18 +25,15 @@
                     <span :class="grade" v-for="grade in item.option_grade"></span>
                   </div>
                 </div>
-                <div class="slot12" :data-grade="dataGrade(bracelet.Grade)">
+                <div class="slot slot12" :data-grade="dataGrade(bracelet.Grade)">
                   <div class="slot_img"><img :src="bracelet.Icon" alt="" /></div>
                 </div>
-                <div class="slot13" :data-grade="dataGrade(stone.Grade)">
+                <div class="slot slot13" :data-grade="dataGrade(stone.Grade)">
                   <div class="slot_img"><img :src="stone.Icon" alt="" /></div>
                 </div>
-                <div class="slot17" :data-grade="dataGrade(orb.Grade)">
+                <div class="slot slot17" :data-grade="dataGrade(orb.Grade)">
                   <div class="slot_img"><img :src="orb.Icon" alt="" /></div>
                 </div>
-              </div>
-              <div class="option_total">
-                <div class="elixir"><font style="color: #ffd200">회심 2</font></div>
               </div>
             </div>
             <div class="profile-avatar__slot" v-if="activeTab == 'avatar'">
@@ -57,6 +49,14 @@
               <div class="slot7" data-grade="4" data-item="E210dcdd_015"><img src="https://cdn-lostark.game.onstove.com/efui_iconatlas/shop_icon/shop_icon_4498.png" alt="" /></div>
               <div class="slot7-1" data-grade="3" data-item="E210dcdd_022"><img src="https://cdn-lostark.game.onstove.com/efui_iconatlas/shop_icon/shop_icon_6505.png" alt="" /></div>
               <div class="slot8" data-grade=""></div>
+            </div>
+            <div class="tab">
+              <div>장비</div>
+              <div>아바타</div>
+            </div>
+            <div class="honor_info" v-if="activeTab == 'equipment'">
+              <span class="honor_grade" :data-honor-grade="honerGrade(profiles.HonorPoint)">명예</span>
+              <span class="honor_point">{{ profiles.HonorPoint }}</span>
             </div>
           </div>
           <div id="div-ability">
