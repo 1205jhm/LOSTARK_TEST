@@ -42,4 +42,9 @@
 </template>
 <script setup>
 let activeTab = ref("equipment");
+const downloadFile = () => {
+  if (process.client) {
+    window.open("/api/download", "_blank");
+  }
+};
 </script>

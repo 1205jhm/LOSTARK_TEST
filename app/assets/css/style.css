@@ -5,6 +5,9 @@
 * {
   box-sizing: border-box;
   color: white;
+  margin: 0;
+  border: 0;
+  padding: 0;
 }
 
 body {
@@ -15,6 +18,8 @@ div {
   display: flex;
   align-items: center;
   justify-content: center;
+  min-height: 0;
+  min-width: 0;
 }
 
 .column {
@@ -25,10 +30,6 @@ div {
   width: 100%;
   height: 100%;
   flex: 1;
-}
-
-.preset {
-  height: 50px;
 }
 
 .lostark-pc {
@@ -45,6 +46,7 @@ div {
   line-height: 50px;
   border-bottom: 3px solid gold;
   font-size: 18px;
+  flex-shrink: 0;
 }
 
 #profile-ability {
@@ -62,6 +64,7 @@ div {
 }
 
 #ability-menu a {
+  height: 100%;
   flex: 1;
   border-bottom: 3px solid gray;
   color: #66686a;
