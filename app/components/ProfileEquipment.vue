@@ -1,34 +1,36 @@
 <template>
   <div class="profile-info column">
-    <div class="gap-item column">
+    <div class="column gap6">
       <div class="level-info column">
-        <div class="top-space"></div>
-        <div class="diamond-glow">
-          <img src="https://cdn-lostark.game.onstove.com/2018/obt/assets/images/common/thumb/emblem_lance_master.png" alt="창술사" class="class-icon" />
+        <div class="class-icon">
+          <div class="diamond-glow">
+            <img src="https://cdn-lostark.game.onstove.com/2018/obt/assets/images/common/thumb/emblem_lance_master.png" alt="창술사" />
+          </div>
         </div>
-        <div class="level-info-text">{{ profiles.CharacterClassName }}</div>
-        <div class="level-info-text cornsilk">{{ profiles.CharacterName }}</div>
-        <div class="level-info-text gold">Lv.{{ profiles.CharacterLevel }}</div>
-        <div class="bottom-space"></div>
-        <div class="level-info__expedition">
-          <div></div>
-          <div class="level-info-text gold">{{ profiles.ExpeditionLevel }}</div>
+        <div class="height40">{{ profiles.CharacterClassName }}</div>
+        <div class="height40 cornsilk">{{ profiles.CharacterName }}</div>
+        <div class="height40 gold">Lv.{{ profiles.CharacterLevel }}</div>
+        <div>
+          <div class="level-info__expedition column">
+            <div class="height40"></div>
+            <div class="height40 gold">{{ profiles.ExpeditionLevel }}</div>
+          </div>
         </div>
       </div>
-      <div class="game-info__title profile-item">
+      <div class="height40">
         <div>{{ profiles.Title }}</div>
       </div>
-      <div class="game-info__guild profile-item">
+      <div class="height40">
         <div class="guild">{{ profiles.GuildName }}</div>
       </div>
-      <div class="level-info__pvp profile-item">
+      <div class="height40">
         <div class="gold">{{ profiles.PvpGradeName }}</div>
       </div>
-      <div class="game-info__wisdom profile-item">
+      <div class="height40">
         <div class="gold">Lv.{{ profiles.TownLevel }}</div>
         <div class="cornsilk">{{ profiles.TownName }}</div>
       </div>
-      <div class="special-info profile-item gray">특수장비</div>
+      <div class="height40 gray">특수장비</div>
     </div>
     <div class="special-info__slot">
       <div class="slot" :data-grade="dataGrade(item.Grade)" v-for="item in getEquipmentItem('나침반')">
@@ -41,43 +43,43 @@
           <img :src="item.Icon" alt="" v-if="item.Icon" />
         </div>
       </div>
-      <div class="slot" :data-grade="dataGrade(item.Grade)" v-for="item in getEquipmentItem('문양')">
+      <div class="slot" :data-grade="dataGrade(item.Grade)" v-for="item in getEquipmentItem('문장')">
         <div class="slot_img">
           <img :src="item.Icon" alt="" v-if="item.Icon" />
         </div>
       </div>
     </div>
-    <div class="arkpassive__title">
-      <div class="substitute">절정</div>
-    </div>
+    <div class="arkpassive__title height40" v-if="arkpassive.IsArkPassive">절정 이거 어디서 가져오냐</div>
     <div class="arkpassive--info">
-      <div class="arkpassive_evolution column">
-        <div class="point-info">
-          <div class="point">120</div>
+      <template v-if="arkpassive.IsArkPassive">
+        <div class="arkpassive_evolution column">
+          <div class="point-info">
+            <div class="point">{{ arkpassive.Points[0].Value }}</div>
+          </div>
+          <div class="stigma_info">
+            <div class="gold">{{ arkpassive.Points[0].Description.split(" ")[0] }}</div>
+            <div>{{ arkpassive.Points[0].Description.split(" ")[1] }}</div>
+          </div>
         </div>
-        <div class="stigma_info">
-          <div class="gold">6랭크</div>
-          <div>27레벨</div>
+        <div class="arkpassive_enlightenment column">
+          <div class="point-info">
+            <div class="point">{{ arkpassive.Points[1].Value }}</div>
+          </div>
+          <div class="stigma_info">
+            <div class="gold">{{ arkpassive.Points[1].Description.split(" ")[0] }}</div>
+            <div>{{ arkpassive.Points[1].Description.split(" ")[1] }}</div>
+          </div>
         </div>
-      </div>
-      <div class="arkpassive_enlightenment column">
-        <div class="point-info">
-          <div class="point">101</div>
+        <div class="arkpassive_leap column">
+          <div class="point-info">
+            <div class="point">{{ arkpassive.Points[1].Value }}</div>
+          </div>
+          <div class="stigma_info">
+            <div class="gold">{{ arkpassive.Points[1].Description.split(" ")[0] }}</div>
+            <div>{{ arkpassive.Points[1].Description.split(" ")[1] }}</div>
+          </div>
         </div>
-        <div class="stigma_info">
-          <div class="gold">6랭크</div>
-          <div>28레벨</div>
-        </div>
-      </div>
-      <div class="arkpassive_leap column">
-        <div class="point-info">
-          <div class="point">70</div>
-        </div>
-        <div class="stigma_info">
-          <div class="gold">6랭크</div>
-          <div>27레벨</div>
-        </div>
-      </div>
+      </template>
     </div>
     <div class="button"></div>
   </div>
@@ -85,7 +87,7 @@
     <div class="preset"></div>
     <div class="full">
       <div class="profile-equipment column full">
-        <div class="profile-equipment__character">
+        <div class="profile-equipment__character full">
           <img :src="profiles.CharacterImage" :alt="profiles.CharacterClassName" />
         </div>
         <div class="div-top">
@@ -139,23 +141,44 @@
             </div>
           </div>
         </div>
-        <div class="div-bottom column">
+        <div class="height40">
           <div class="tab">
             <div class="gray" :class="{ active: activeTab == 'equipment' }" @click="activeTab = 'equipment'">장비</div>
             <div class="gray" :class="{ active: activeTab == 'avatar' }" @click="activeTab = 'avatar'">아바타</div>
           </div>
-          <div class="honor_info" v-if="activeTab == 'equipment'">
-            <div class="honor_grade" :data-honor-grade="dataHonorGrade(profiles.HonorPoint)"></div>
-            <div class="honor_text">명예</div>
-            <div class="honor_point gold">{{ profiles.HonorPoint }}</div>
-            <div class="honor_guide"></div>
-          </div>
+        </div>
+        <div class="honor_info" v-if="activeTab == 'equipment'">
+          <div class="honor_grade" :data-honor-grade="dataHonorGrade(profiles.HonorPoint)"></div>
+          <div class="honor_text">명예</div>
+          <div class="honor_point gold">{{ profiles.HonorPoint }}</div>
+          <div class="honor_guide"></div>
         </div>
       </div>
-      <div class="profile-ability">
-        <div class="profile-ability-basic"></div>
-        <div class="profile-ability-battle" v-if="activeTab == 'equipment'"></div>
-        <div class="profile-ability-tendency" v-if="activeTab == 'avatar'"></div>
+      <div class="profile-ability column">
+        <div class="level-info2 column">
+          <div class="column">
+            <div class="ability-title">장착 아이템 레벨</div>
+            <div class="item-level-value">{{ profiles.ItemAvgLevel }}</div>
+          </div>
+          <div class="column">
+            <div class="ability-title">전투력</div>
+            <div class="combat-power-value">{{ profiles.CombatPower }}</div>
+          </div>
+        </div>
+        <div class="profile-ability-basic column">
+          <div class="ability-title">기본 특성</div>
+          <div class="ability-value">
+            <div class="gold">공격력</div>
+            <div v-if="profiles.Stats">{{ profiles.Stats[7].Value }}</div>
+          </div>
+          <div class="ability-value">
+            <div class="gold">최대 생명력</div>
+            <div v-if="profiles.Stats">{{ profiles.Stats[6].Value }}</div>
+          </div>
+        </div>
+        <div class="profile-ability-battle full" v-if="activeTab == 'equipment'"></div>
+        <div class="profile-ability-tendency full" v-if="activeTab == 'avatar'"></div>
+        <div class="detail-button">상세정보</div>
       </div>
     </div>
   </div>
@@ -166,6 +189,7 @@ const showDetail = ref(false);
 const profiles = ref({});
 const equipment = ref([]);
 const avatars = ref([]);
+const arkpassive = ref({});
 const equipmentType = ref({ left: ["투구", "어깨", "상의", "하의", "장갑", "무기"], right: ["목걸이", "귀걸이", "반지", "팔찌", "어빌리티 스톤", "보주"] });
 const avatarsType = ref({ left: { top: ["무기", "악기"], bottom: ["발걸음", "잠김", "잠김"] }, right: { top: ["머리", "얼굴1", "얼굴2"], bottom: ["상의", "하의"] } });
 
@@ -173,6 +197,8 @@ onMounted(async () => {
   profiles.value = await test.armories.profiles("미르오스");
   equipment.value = await test.armories.equipment("미르오스");
   avatars.value = await test.armories.avatars("미르오스");
+  arkpassive.value = await test.armories.arkpassive("미르오스");
+  await test.armories.engravings("미르오스");
 });
 
 function getEquipmentItem(type) {
