@@ -33,7 +33,6 @@ div {
   width: 1420px;
   height: 920px;
 
-  background: #16191d;
   margin: auto;
 }
 
@@ -42,11 +41,14 @@ div {
   width: 100%;
   flex-shrink: 0;
 
-  border-bottom: 3px solid gold;
+  background: rgba(0, 0, 0, 0.8);
+  border-bottom: 2px solid cornsilk;
 }
 
 .profile-tab {
-  padding: 0 20px 20px 20px;
+  padding: 0 20px;
+  gap: 10px;
+  background: #16191d;
 }
 
 .menu {
@@ -61,8 +63,7 @@ div {
   height: 100%;
   flex: 1;
 
-  border-bottom: 3px solid gray;
-  color: gray;
+  border-bottom: 2px solid gray;
 }
 
 .menu > div:last-child {
@@ -72,11 +73,23 @@ div {
 .menu > div.active {
   color: white;
   background: linear-gradient(to bottom, #1a1a1a 0%, #2d2a27 30%, #4a3a2a 60%, #cfaf6f 90%, #efcf8f 100%);
-  border-bottom: 2px solid #ffdf9f;
+  border-bottom: 2px solid cornsilk;
 }
 
 .preset {
   width: 100%;
-  height: 60px;
+  height: 50px;
   flex-shrink: 0;
+}
+
+.gold {
+  color: gold;
+}
+
+.gray {
+  color: gray;
+}
+
+.cornsilk {
+  color: cornsilk;
 }

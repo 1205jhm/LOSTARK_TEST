@@ -2,16 +2,21 @@
   width: 450px;
   height: 100%;
   flex-shrink: 0;
+
+  padding-bottom: 20px;
 }
 
 .profile-ability {
   width: 250px;
   height: 100%;
   flex-shrink: 0;
+
+  padding-bottom: 20px;
 }
 
 .profile-equipment {
   position: relative;
+  padding-bottom: 20px;
 }
 
 .profile-equipment__character {
@@ -47,8 +52,7 @@
   height: 100%;
   flex-shrink: 0;
 
-  color: gray;
-  border-radius: 36px;
+  border-radius: 40px;
 }
 
 .tab > div.active {
@@ -75,7 +79,7 @@
 }
 
 .honor_grade[data-honor-grade="1"] {
-  background-position: 0 0;
+  background-position-y: 0;
 }
 
 .honor_text {
@@ -88,14 +92,73 @@
   width: 30px;
   height: 40px;
   flex-shrink: 0;
-
-  color: gold;
 }
 
 .honor_guide {
   width: 30px;
   height: 40px;
   flex-shrink: 0;
+}
+
+.lostark-pc .div-top {
+  height: 40px;
+
+  position: absolute;
+  top: 10px;
+  left: 5px;
+  right: 15px;
+  justify-content: space-between;
+}
+
+.lostark-pc .div-top .preset-title {
+  width: 300px;
+  height: 100%;
+
+  justify-content: start;
+  background: rgba(0, 0, 0, 0.2);
+}
+
+.lostark-pc .div-top .toggle-detail {
+  width: 100px;
+  height: 36px;
+
+  border-radius: 40px;
+  background: #2f3f4f;
+  padding: 6px;
+}
+
+.lostark-pc .div-top .toggle-on .search-icon {
+  stroke: gold;
+}
+
+.lostark-pc .div-top .toggle-button {
+  width: 52px;
+  height: 24px;
+
+  border: 2px solid gray;
+  border-radius: 40px;
+  background: black;
+  position: relative;
+}
+
+.lostark-pc .div-top .toggle-on .toggle-button {
+  border: 2px solid gold;
+}
+
+.lostark-pc .div-top .toggle {
+  width: 14px;
+  height: 14px;
+
+  position: absolute;
+  left: 3px;
+  background: gray;
+  border-radius: 40px;
+  transition: all 0.2s linear;
+}
+
+.lostark-pc .div-top .toggle-on .toggle {
+  transform: translateX(28px);
+  background: gold;
 }
 
 .lostark-pc .profile-equipment__slot {
@@ -114,7 +177,7 @@
 .lostark-pc .profile-equipment__slot .slot_right {
   position: absolute;
   top: 50px;
-  right: 30px;
+  right: 15px;
   align-items: end;
   pointer-events: auto;
 }
@@ -268,23 +331,94 @@
   height: 100%;
 }
 
-.lostark-pc .profile-info .arkpassive__title:before {
-  background: url(https://cdn-lostark.game.onstove.com/2018/obt/assets/images/common/game/ico_arkpassive.png) no-repeat 50% 50% / 100% auto;
-  content: "";
-  height: 20px;
-  width: 20px;
+.lostark-pc .gap-item {
+  width: 100%;
+  height: 100%;
+  flex: 1;
+
+  gap: 6px;
 }
 
-.lostark-pc .profile-info .arkpassive__title .substitute {
-  color: #ba94ff;
+.lostark-pc .profile-info .profile-item {
+  width: 100%;
+  height: 40px;
+  flex-shrink: 0;
+
+  background: linear-gradient(to right, #1a1a1a, #1f272f, #1a1a1a);
+
+  border-bottom: 2px solid;
+  border-image: linear-gradient(to right, #1a1a1a, #2f3f4f, #1a1a1a) 1;
 }
-.lostark-pc .profile-info .special-info .slot {
-  height: 60px;
-  width: 60px;
+
+.lostark-pc .profile-info .level-info {
+  width: 100%;
+  height: 100%;
+  flex: 1;
+
+  background: radial-gradient(circle at bottom center, rgba(160, 40, 60, 0.5) 0, #1a1a1a 50%);
   position: relative;
 }
 
-.lostark-pc .profile-info .special-info .slot_img {
+.top-space {
+  height: 40px;
+}
+
+.bottom-space {
+  height: 90px;
+}
+
+.diamond-glow {
+  width: 80px;
+  height: 80px;
+  transform: rotate(45deg);
+  border: 2px solid rosybrown;
+  box-shadow: 0 0 20px rosybrown;
+}
+
+.class-icon {
+  width: 100px;
+  height: 100px;
+  transform: rotate(-45deg);
+}
+
+.level-info-text {
+  height: 30px;
+  transform: rotate(0);
+}
+
+.lostark-pc .profile-info .guild {
+  color: MediumAquamarine;
+}
+
+.lostark-pc .profile-info .game-info__wisdom {
+  gap: 6px;
+}
+
+.level-info__expedition {
+  width: 70px;
+  height: 70px;
+
+  position: absolute;
+  left: 20px;
+  bottom: 90px;
+  align-items: end;
+}
+
+.lostark-pc .profile-info .special-info__slot {
+  width: 100%;
+  height: 80px;
+  flex-shrink: 0;
+
+  gap: 25px;
+}
+
+.lostark-pc .profile-info .special-info__slot .slot {
+  width: 60px;
+  height: 60px;
+  position: relative;
+}
+
+.lostark-pc .profile-info .special-info__slot .slot_img {
   background: url(https://cdn-lostark.game.onstove.com/2018/obt/assets/images/common/game/bg_special_slot.png) no-repeat 0 0;
   background-size: 100%;
   position: absolute;
@@ -295,28 +429,82 @@
   height: 100%;
 }
 
-.lostark-pc .profile-info .special-info .slot_img img {
-  height: 50px;
+.lostark-pc .profile-info .special-info__slot .slot_img img {
   width: 50px;
+  height: 50px;
+}
+
+.lostark-pc .profile-info .arkpassive__title {
+  width: 100%;
+  height: 40px;
+  flex-shrink: 0;
+
+  background: linear-gradient(to right, #1a1a1a 20%, #3f1f6f 50%, #1a1a1a 80%);
+  border-bottom: 2px solid;
+  border-image: linear-gradient(to right, #1a1a1a, #cfafff, #1a1a1a) 1;
+}
+
+.lostark-pc .profile-info .arkpassive__title:before {
+  background: url(https://cdn-lostark.game.onstove.com/2018/obt/assets/images/common/game/ico_arkpassive.png) no-repeat 50% 50% / 100% auto;
+  content: "";
+  height: 20px;
+  width: 20px;
+}
+
+.lostark-pc .profile-info .arkpassive__title .substitute {
+  color: #ba94ff;
+}
+
+.lostark-pc .profile-info .arkpassive--info {
+  width: 100%;
+  height: 100px;
+  flex-shrink: 0;
+}
+
+.lostark-pc .profile-info .arkpassive--info > div {
+  width: 140px;
+  height: 100px;
+}
+
+.lostark-pc .profile-info .arkpassive--info .point-info {
+  width: 100%;
+  height: 50px;
+  align-items: end;
+}
+
+.lostark-pc .profile-info .arkpassive--info .stigma_info {
+  width: 100%;
+  height: 50px;
+
+  gap: 6px;
 }
 
 .lostark-pc .profile-info .arkpassive--info .point {
+  width: 96px;
+  height: 36px;
+
   background: url(https://cdn-lostark.game.onstove.com/2018/obt/assets/images/pc/profile/bg_arkpassive_point.png) no-repeat 0 0;
-  width: 80px;
-  height: 30px;
+  background-size: 100%;
+  padding-left: 20px;
 }
 
 .lostark-pc .profile-info .arkpassive--info .arkpassive_evolution .point {
-  background-position-y: 1px;
+  background-position-y: 0px;
   color: #f2d694;
 }
 
 .lostark-pc .profile-info .arkpassive--info .arkpassive_enlightenment .point {
-  background-position-y: -29px;
+  background-position-y: -36px;
   color: #83e9ff;
 }
 
 .lostark-pc .profile-info .arkpassive--info .arkpassive_leap .point {
-  background-position-y: -59px;
+  background-position-y: -72px;
   color: #c2ea55;
+}
+
+.lostark-pc .profile-info .button {
+  width: 100%;
+  height: 40px;
+  flex-shrink: 0;
 }
