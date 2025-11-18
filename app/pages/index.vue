@@ -1,18 +1,16 @@
 <template>
   <div class="lostark-pc column">
-    <div class="title box">
-      <div>캐릭터 정보</div>
-    </div>
-    <div class="profile-tab column full">
-      <div class="menu box">
-        <div class="full gray" :class="{ active: activeTab == 'equipment' }" @click.prevent="activeTab = 'equipment'">장비</div>
-        <div class="full gray" :class="{ active: activeTab == 'engrave' }" @click.prevent="activeTab = 'engrave'">각인</div>
-        <div class="full gray" :class="{ active: activeTab == 'jewel' }" @click.prevent="activeTab = 'jewel'">보석</div>
-        <div class="full gray" :class="{ active: activeTab == 'card' }" @click.prevent="activeTab = 'card'">카드</div>
-        <div class="full gray" :class="{ active: activeTab == 'arkgrid' }" @click.prevent="activeTab = 'arkgrid'">아크 그리드</div>
-        <div class="full gray"></div>
+    <div class="title height50">캐릭터 정보</div>
+    <div class="wrap column full">
+      <div class="height50 gap6">
+        <div class="menu full gray" :class="{ active: activeTab == 'equipment' }" @click.prevent="activeTab = 'equipment'">장비</div>
+        <div class="menu full gray" :class="{ active: activeTab == 'engrave' }" @click.prevent="activeTab = 'engrave'">각인</div>
+        <div class="menu full gray" :class="{ active: activeTab == 'jewel' }" @click.prevent="activeTab = 'jewel'">보석</div>
+        <div class="menu full gray" :class="{ active: activeTab == 'card' }" @click.prevent="activeTab = 'card'">카드</div>
+        <div class="menu full gray" :class="{ active: activeTab == 'arkgrid' }" @click.prevent="activeTab = 'arkgrid'">아크 그리드</div>
+        <div class="menu full gray"></div>
       </div>
-      <div class="full">
+      <div class="content full">
         <profile-equipment v-if="activeTab == 'equipment'"></profile-equipment>
         <profile-engrave v-if="activeTab == 'engrave'"></profile-engrave>
         <profile-jewel v-if="activeTab == 'jewel'"></profile-jewel>

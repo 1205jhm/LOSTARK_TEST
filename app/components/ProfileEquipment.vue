@@ -2,97 +2,89 @@
   <div class="profile-info column">
     <div class="column gap6">
       <div class="level-info column">
-        <div class="class-icon">
-          <div class="diamond-glow">
+        <div class="class-img">
+          <div class="diamond">
             <img src="https://cdn-lostark.game.onstove.com/2018/obt/assets/images/common/thumb/emblem_lance_master.png" alt="창술사" />
           </div>
         </div>
-        <div class="height40">{{ profiles.CharacterClassName }}</div>
+        <div class="class-name height40">{{ profiles.CharacterClassName }}</div>
         <div class="height40 cornsilk">{{ profiles.CharacterName }}</div>
         <div class="height40 gold">Lv.{{ profiles.CharacterLevel }}</div>
-        <div>
-          <div class="level-info__expedition column">
-            <div class="height40"></div>
-            <div class="height40 gold">{{ profiles.ExpeditionLevel }}</div>
-          </div>
+        <div class="expedition-level-info column">
+          <div class="height40"></div>
+          <div class="height40 gold">{{ profiles.ExpeditionLevel }}</div>
         </div>
       </div>
-      <div class="height40">
-        <div>{{ profiles.Title }}</div>
-      </div>
-      <div class="height40">
-        <div class="guild">{{ profiles.GuildName }}</div>
-      </div>
-      <div class="height40">
-        <div class="gold">{{ profiles.PvpGradeName }}</div>
-      </div>
-      <div class="height40">
+      <div class="profile-item height40">{{ profiles.Title }}</div>
+      <div class="guild profile-item height40">{{ profiles.GuildName }}</div>
+      <div class="profile-item height40 gold">{{ profiles.PvpGradeName }}</div>
+      <div class="profile-item height40">
         <div class="gold">Lv.{{ profiles.TownLevel }}</div>
         <div class="cornsilk">{{ profiles.TownName }}</div>
       </div>
-      <div class="height40 gray">특수장비</div>
+      <div class="profile-item height40 gray">특수장비</div>
     </div>
-    <div class="special-info__slot">
+    <div class="special-info-slot">
       <div class="slot" :data-grade="dataGrade(item.Grade)" v-for="item in getEquipmentItem('나침반')">
-        <div class="slot_img">
+        <div class="slot-img">
           <img :src="item.Icon" alt="" v-if="item.Icon" />
         </div>
       </div>
       <div class="slot" :data-grade="dataGrade(item.Grade)" v-for="item in getEquipmentItem('부적')">
-        <div class="slot_img">
+        <div class="slot-img">
           <img :src="item.Icon" alt="" v-if="item.Icon" />
         </div>
       </div>
       <div class="slot" :data-grade="dataGrade(item.Grade)" v-for="item in getEquipmentItem('문장')">
-        <div class="slot_img">
+        <div class="slot-img">
           <img :src="item.Icon" alt="" v-if="item.Icon" />
         </div>
       </div>
     </div>
-    <div class="arkpassive__title height40" v-if="arkpassive.IsArkPassive">절정 이거 어디서 가져오냐</div>
-    <div class="arkpassive--info">
+    <div class="arkpassive-title height40" v-if="arkpassive.IsArkPassive">절정 이거 어디서 가져오냐</div>
+    <div class="arkpassive-info">
       <template v-if="arkpassive.IsArkPassive">
-        <div class="arkpassive_evolution column">
-          <div class="point-info">
+        <div class="evolution column">
+          <div class="point-img height50">
             <div class="point">{{ arkpassive.Points[0].Value }}</div>
           </div>
-          <div class="stigma_info">
+          <div class="height50 gap6">
             <div class="gold">{{ arkpassive.Points[0].Description.split(" ")[0] }}</div>
             <div>{{ arkpassive.Points[0].Description.split(" ")[1] }}</div>
           </div>
         </div>
-        <div class="arkpassive_enlightenment column">
-          <div class="point-info">
+        <div class="enlightenment column">
+          <div class="point-img height50">
             <div class="point">{{ arkpassive.Points[1].Value }}</div>
           </div>
-          <div class="stigma_info">
+          <div class="height50 gap6">
             <div class="gold">{{ arkpassive.Points[1].Description.split(" ")[0] }}</div>
             <div>{{ arkpassive.Points[1].Description.split(" ")[1] }}</div>
           </div>
         </div>
-        <div class="arkpassive_leap column">
-          <div class="point-info">
+        <div class="leap column">
+          <div class="point-img height50">
             <div class="point">{{ arkpassive.Points[1].Value }}</div>
           </div>
-          <div class="stigma_info">
+          <div class="height50 gap6">
             <div class="gold">{{ arkpassive.Points[1].Description.split(" ")[0] }}</div>
             <div>{{ arkpassive.Points[1].Description.split(" ")[1] }}</div>
           </div>
         </div>
       </template>
     </div>
-    <div class="button"></div>
+    <div class="height40"></div>
   </div>
   <div class="column full">
-    <div class="preset"></div>
+    <div class="height50"></div>
     <div class="full">
-      <div class="profile-equipment column full">
-        <div class="profile-equipment__character full">
+      <div class="profile-equipment column">
+        <div class="character-img">
           <img :src="profiles.CharacterImage" :alt="profiles.CharacterClassName" />
         </div>
-        <div class="div-top">
+        <div class="equipment-title height40">
           <div class="preset-title" v-if="activeTab == 'equipment'">장비 프리셋</div>
-          <div class="toggle-detail" :class="{ 'toggle-on': showDetail }" v-if="activeTab == 'equipment'" @click="showDetail = !showDetail">
+          <div class="toggle-detail" :class="{ active: showDetail }" v-if="activeTab == 'equipment'" @click="showDetail = !showDetail">
             <div class="full">
               <svg class="search-icon" xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 22 22" fill="none" stroke="gray" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                 <circle cx="9" cy="9" r="8" />
@@ -105,20 +97,20 @@
           </div>
           <div class="preset-title" v-if="activeTab == 'avatar'">아바타 프리셋</div>
         </div>
-        <div class="profile-equipment__slot" v-if="activeTab == 'equipment'">
-          <div class="slot_left column">
+        <div class="profile-equipment-slot" v-if="activeTab == 'equipment'">
+          <div class="slot-left column">
             <template v-for="type in equipmentType.left">
               <div class="slot" :data-grade="dataGrade(item.Grade)" v-for="item in getEquipmentItem(type)">
-                <div class="slot_img">
+                <div class="slot-img">
                   <img :src="item.Icon" alt="" v-if="item.Icon" />
                 </div>
               </div>
             </template>
           </div>
-          <div class="slot_right column">
+          <div class="slot-right column">
             <template v-for="type in equipmentType.right">
               <div class="slot" :class="item.class" :data-grade="dataGrade(item.Grade)" v-for="item in getEquipmentItem(type)">
-                <div class="slot_img">
+                <div class="slot-img">
                   <img :src="item.Icon" alt="" v-if="item.Icon" />
                 </div>
                 <div class="accessory_option column" v-if="item.option_grade && !showDetail">
@@ -128,12 +120,12 @@
             </template>
           </div>
         </div>
-        <div class="profile-avatar__slot" v-if="activeTab == 'avatar'">
-          <div :class="`slot_${key} column`" v-for="(horizontal, key) in avatarsType">
-            <div :class="`slot_${key} column`" v-for="(vertical, key) in horizontal">
-              <div v-for="type in vertical">
+        <div class="profile-avatar-slot" v-if="activeTab == 'avatar'">
+          <div :class="`slot-${key} column`" v-for="(horizontal, key) in avatarsType">
+            <div :class="`slot-${key} column`" v-for="(vertical, key) in horizontal">
+              <div class="slot-box" v-for="type in vertical">
                 <div class="slot" :data-grade="dataGrade(item.Grade)" v-for="item in getAvatarsItem(type)">
-                  <div class="slot_img">
+                  <div class="slot-img">
                     <img :src="item.Icon" alt="" v-if="item.Icon" />
                   </div>
                 </div>
@@ -141,17 +133,17 @@
             </div>
           </div>
         </div>
-        <div class="height40">
-          <div class="tab">
-            <div class="gray" :class="{ active: activeTab == 'equipment' }" @click="activeTab = 'equipment'">장비</div>
-            <div class="gray" :class="{ active: activeTab == 'avatar' }" @click="activeTab = 'avatar'">아바타</div>
-          </div>
+        <div class="equipment-tab height40">
+          <div class="gray" :class="{ active: activeTab == 'equipment' }" @click="activeTab = 'equipment'">장비</div>
+          <div class="gray" :class="{ active: activeTab == 'avatar' }" @click="activeTab = 'avatar'">아바타</div>
         </div>
-        <div class="honor_info" v-if="activeTab == 'equipment'">
-          <div class="honor_grade" :data-honor-grade="dataHonorGrade(profiles.HonorPoint)"></div>
-          <div class="honor_text">명예</div>
-          <div class="honor_point gold">{{ profiles.HonorPoint }}</div>
-          <div class="honor_guide"></div>
+        <div class="honor-box">
+          <div class="honor-info height40" v-if="activeTab == 'equipment'">
+            <div class="honor-grade" :data-honor-grade="dataHonorGrade(profiles.HonorPoint)"></div>
+            <div class="honor-title">명예</div>
+            <div class="honor-point gold">{{ profiles.HonorPoint }}</div>
+            <div class="honor-guide"></div>
+          </div>
         </div>
       </div>
       <div class="profile-ability column">
